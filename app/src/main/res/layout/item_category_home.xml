@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="category"
+            type="com.example.domain.model.Category" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        >
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/iv_category"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:scaleType="centerCrop"
+            app:placeholder="@{@drawable/splash_iv}"
+            app:url="@{category.image}"
+            app:riv_corner_radius="30dp"
+            app:riv_border_width="1dp"
+            app:riv_border_color="@color/primary_color"
+            app:riv_oval="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars"
+            />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{category.name}"
+            app:layout_constraintTop_toBottomOf="@id/iv_category"
+            app:layout_constraintStart_toStartOf="@id/iv_category"
+            app:layout_constraintEnd_toEndOf="@id/iv_category"
+            tools:text="Men's Fashion"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

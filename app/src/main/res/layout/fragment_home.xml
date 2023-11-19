@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp">
+
+            <ImageView
+                android:id="@+id/route_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:src="@drawable/route_word"
+                android:adjustViewBounds="true"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <EditText
+                android:id="@+id/search_bar"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:background="@drawable/rounded_edit_text"
+                android:hint="@string/what_do_you_search_for"
+                android:paddingHorizontal="12dp"
+                android:drawableStart="@drawable/ic_search"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/route_txt"
+                app:layout_constraintStart_toStartOf="parent" />
+            <ImageView
+                android:id="@+id/ic_cart"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_shopping_cart"
+                android:adjustViewBounds="true"
+                android:layout_marginTop="30dp"
+                app:layout_constraintStart_toEndOf="@id/search_bar"
+                app:layout_constraintTop_toBottomOf="@id/route_txt"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@id/search_bar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                >
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/main_root"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/success_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="@id/main_root"
+                        >
+                        <ImageView
+                            android:id="@+id/flash_sale"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/iv_flash_sale"
+                            app:layout_constraintTop_toTopOf="parent"
+                            />
+                        <TextView
+                            android:id="@+id/tv_categories"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/categories"
+                            android:textColor="@color/primary_color_dark"
+                            android:textSize="18sp"
+                            app:layout_constraintTop_toBottomOf="@id/flash_sale"
+                            app:layout_constraintStart_toStartOf="parent"
+                            />
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_categories"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@id/tv_categories"
+                            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                            android:orientation="horizontal"
+                            app:spanCount="2"
+                            tools:listitem="@layout/item_category_home"
+                            />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </ScrollView>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/error_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/error_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="error message" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_try_again"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:backgroundTint="@color/primary_color"
+                    android:text="@string/try_again"
+                    app:cornerRadius="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/error_txt" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/loading_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/loading_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="error message" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

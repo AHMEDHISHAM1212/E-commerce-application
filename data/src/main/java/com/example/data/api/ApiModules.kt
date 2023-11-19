@@ -40,7 +40,7 @@ fun provideLoggingInterceptor(): HttpLoggingInterceptor {
         gsonConverterFactory: GsonConverterFactory
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("x`")
+            .baseUrl("https://ecommerce.routemisr.com/")
             .client(okHttpClient)
             .addConverterFactory(gsonConverterFactory)
             .build()
